@@ -1,0 +1,178 @@
+/* ============================================== MAIN STYLES ============================================== */
+@import url('https://fonts.googleapis.com/css2?family=Sansita:wght@400;900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Climate+Crisis&display=swap');
+
+:root {
+    --Climate-font: 'Climate Crisis', cursive;
+    --Sansita-font: 'Sansita', sans-serif;
+}
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    text-decoration: none;
+    color: #fff;
+    font-family: var(--Sansita-font);
+    font-size: 18px;
+}
+
+img {
+    user-select: none;
+    pointer-events: none;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;
+    min-height: 100vh;
+    background-color: #000;
+}
+
+/* ================================================== MENU ================================================ */
+.menu {
+    position: fixed;
+    top: 2rem;
+    left: 50%;
+    z-index: 999;
+    transform: translateX(-50%);
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    cursor: pointer;
+}
+
+.menu .bar {
+    width: 40px;
+    height: 2px;
+    background-color: #fff;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu.active .bar {
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+.menu.active .bar.bar-1 {
+    transform: rotate(45deg) translateY(8px);
+}
+
+.menu.active .bar.bar-2 {
+    opacity: 0;
+}
+
+.menu.active .bar.bar-3 {
+    transform: rotate(-45deg) translateY(-8px);
+}
+/* =============================================== NAVBAR ================================================= */
+nav.navBar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: 99;
+    padding: 4rem;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 2rem;
+    transform: translateY(-200%);
+    transition: all 1s ease-in-out;
+}
+
+nav.navBar.active {
+    transform: translateY(0%);
+    transition: all 1s ease-in-out;
+}
+
+nav.navBar .linkContainer {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+}
+
+nav.navBar .linkContainer::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    height: 100%;
+    width: 0%;
+    background-color: #000;
+    transition: all 0.3s ease-in-out;
+}
+
+nav.navBar .linkContainer:hover::before {
+    width: 100%;
+}
+
+nav.navBar .linkContainer a {
+    display: block;
+    mix-blend-mode: difference;
+    font-family: var(--Climate-font);
+    font-size: 7.5vw;
+    font-weight: bold;
+    width: 100%;
+    text-align: center;
+    transition: all 0.3s ease-in-out;
+}
+
+nav.navBar .linkContainer a:hover {
+    letter-spacing: 2vw;
+    text-decoration: underline;
+}
+/* ============================================== HERO PAGE =============================================== */
+.heroPage {
+    width: 100%;
+    height: 100%;
+    padding: 4rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    flex-direction: column;
+    background-image: url("/images/bg.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.heroPage .figmaImage {
+    width: 90%;
+    mix-blend-mode: difference;
+}
+
+.heroPage p.description {
+    width: 60%;
+    mix-blend-mode: difference;
+    text-align: center;
+}
+
+.heroPage a.ctaBtn {
+    padding: 10px 40px;
+    border: 1px solid #fff;
+    border-radius: 100px;
+    mix-blend-mode: difference;
+}
+/* ============================================== RESPONSIVE ============================================== */
+
+@media screen and (max-width: 992px) {
+    p.description {
+        width: 100% !important;
+    }
+
+    nav.navBar {
+        padding: 0 2rem;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .heroPage {
+        padding: 0 2rem;
+    }
+}
